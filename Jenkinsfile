@@ -16,6 +16,11 @@ pipeline{
     }
     //stages
     stages{
+        stage('checkout'){
+            steps{
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Subhojit96/Pipeline.git']]])
+            }
+        }
         stage('Initialize')
         {
             steps{
