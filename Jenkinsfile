@@ -39,7 +39,7 @@ pipeline{
         }
         stage('destroy'){
             steps{
-                sh 'terraform destroy -auto-approve'
+                sh "terraform destroy -auto-approve -var \"access_key=${env.ACCESS_KEY}\" -var \"secret_key=${SECRET_KEY}\""
             }
         }
     }
